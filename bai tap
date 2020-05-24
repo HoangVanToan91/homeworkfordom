@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="D:\NoteJS\myProject\Website\style.css"/>
+        <title id="title">title</title>
+        <script>            
+            setOClock()
+            let loop = setInterval(setOClock, 1000)
+            function  setOClock(){
+                var showTime = new Date();
+                var showHour = showTime.getHours();
+                var showMinute = showTime.getMinutes();
+                document.title = showHour+":"+showMinute;
+                console.log(showHour)
+            }
+            
+        </script>
+    </head>
+    <body id="body">
+        <h1>Bài 4</h1>
+        <div class="check-age">
+            <input name="text" id="inputYear" value=""/>
+            <button onclick="checkAge()" id="find-age">Tính tuổi</button>
+            <div id="show-age"></div>
+        </div>
+        <script>
+            function checkAge(){
+                var time = new Date();
+                var yearOfBirth = document.getElementById("inputYear").value;
+                birth= Number(yearOfBirth);
+                year = time.getFullYear(); 
+                age = year-birth;
+                console.log(age);
+                document.getElementById("show-age").innerHTML = "Tuổi của bạn là: " + age;
+            }
+        </script>
+        <h1>Bài 5</h1>
+        <div class="check-year">
+            <input name="text" id="inputYear2" value=""/>
+            <button onclick="checkYear()">Kiểm tra</button>
+            <div id="show-age2"></div>            
+        </div>
+        <script>
+            function checkYear(){
+                var time2 = new Date();
+                var yearOfBirth2 = document.getElementById("inputYear2").value;
+                birth2= Number(yearOfBirth2);
+                year2 = time2.getFullYear(); 
+                do {
+                    document.getElementById("show-age2").innerHTML = "Năm sinh của bạn là: " + birth2;
+                }
+                while(birth2 > year2)
+                
+            }
+        </script>
+        <h1>Bài 6</h1>
+        <div class="add-background">
+            <button onclick="colorBlue()">xanh</button>
+            <button onclick="colorRed()">đỏ</button>
+        </div>
+        <script>
+            function colorBlue(){                
+                document.getElementById("body").style.backgroundColor = "blue";
+            }
+            function colorRed(){                
+                document.getElementById("body").style.backgroundColor = "#ff0000";
+            }
+        </script>
+        <h1>Bài 7</h1>
+        <select id="changeBg" onchange="myBg()"> 
+            <option value="">Chọn màu</option>
+            <option value="red">red"</option>
+            <option value="blue">blue</option>
+            <option value="brown">brown</option>
+            <option value="lavender">lavender</option>
+        </select>
+        <script>
+            function myBg(){ 
+                var valCheck = document.getElementById("changeBg");
+                var val = valCheck.options[valCheck.selectedIndex].value;
+                document.getElementById("body").style.backgroundColor = val;
+            }
+        </script>
+        <h1>Bài 8</h1>
+        <div class="top-header" >
+            <div class="clock"></div>
+            <p>xem ở đàu trang</p>
+        </div>
+       
+        <h1>Bài 9</h1>
+        <h3 id="show-time"></h3>
+     <script>
+         
+        updateTime()
+        let loop2 = setInterval(updateTime, 1000)
+
+        function updateTime() {
+            let showTime = document.getElementById("show-time")
+            showTime.innerHTML = new Date().toLocaleString()
+        }
+
+       
+     </script>
+        <h1>Bài 10</h1>
+        <div id="change-text" class=" hidden-text">
+            Vali kéo du lịch Travel King PP182 chính hãng Travel King là nhãn hàng vali thương hiệu Việt, được sản xuất trên quy trình chất lượng Nhật Bản, duy nhất tại Việt Nam. Sản phẩm của Travel King được đánh giá rất cao về chất lượng, kiểu dáng trẻ trung, hiện đại. Travel King PP182 tạo ấn tượng với vẻ ngoài vuông vức, đường vân dập nổi 3D tinh xảo, sử dụng chất liệu nhựa 100% Poly Propylene chống va đập và đàn hồi cực tốt. Vali kéo chính hãng, Made in Việt Nam Kích thước: Cao 55 cm x Rộng 35 cm x Sâu 23 cm. Thể tích chứa đồ 90 lít. Vali cỡ trung, hành lý xách tay lên máy bay Trọng lượng: 3,16 kg. Sức chứa hành lý: 7 – 10 kg. Chất liệu nhựa dẻo 100 PP cao cấp màu sắc sang trọng, chống va đập cực tốt. Bề mặt vali được xử lý gia cường chống trầy xước. Bên trong vali các ngăn được bố trí rất thuận tiện trong sử dụng, có vách ngăn và đai chữ X giữ cho đồ đạc không bị xáo trộn trong quá trình di chuyển. của Hoa Kỳ, loại khóa cao cấp và an toàn nhất cho vali du lịch hiện nay. Cần kéo hợp kim nhôm rất chắc chắn. Trên vali có tích hợp 2 quai xách rất thuận tiện sử dụng. Vali kéo có 8 bánh xe gắn trên 4 trục, có khả năng xoay 360 độ, di chuyển nhẹ nhàng trên mọi địa hình.
+        </div>
+        <div  onclick="showMore()" id="check-show" class="show-more">
+            Show more
+        </div>
+        <script>
+            function showMore(){                
+                var element = document.getElementById("change-text");
+                var x = document.getElementById("check-show");
+                element.classList.toggle("hidden-text");
+                if (x.innerHTML === "Show less") {
+                    x.innerHTML = "Show more";
+                } else {
+                    x.innerHTML = "Show less";
+                }
+            }            
+        </script>
+        <h1>Bài 11</h1>
+        <div id="myDIV" class="add-list">            
+            <input type="text" id="addInput" placeholder="add todo list">
+            <span onclick="addToDo()" class="addBtn">Add</span>
+          </div>          
+          <ul id="todoList">
+            
+          </ul>
+          <script>
+              function addToDo(){
+                var li = document.createElement("li");
+                var inputValue = document.getElementById("addInput").value;
+                var t = document.createTextNode(inputValue);
+                li.appendChild(t);
+                if (inputValue !== '') {
+                  
+                    document.getElementById("todoList").appendChild(li);
+                }
+                document.getElementById("addInput").value = "";
+                var span = document.createElement("span");
+                var txt = document.createTextNode("-Xóa");
+                span.className = "close";
+                span.appendChild(txt);
+                li.appendChild(span);
+
+                for (i = 0; i < close.length; i++) {
+                    close[i].onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                    }
+                }
+              }
+              var itemList = document.getElementsByTagName("li");
+              for ( var i = 0; i < itemList.length; i ++){
+                var span = document.createElement("span");
+                var txt = document.createTextNode("-Xóa");
+                span.className = "close";
+                span.appendChild(txt);
+                myNodelist[i].appendChild(span);
+              }
+              var close = document.getElementsByClassName("close");
+              for ( var i = 0; i < close.length; i ++){
+                  close[i].onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+              }
+              //document.getElementsByClassName("close").style.colorRed;
+          </script>
+        <h1>Bài 12</h1>
+        <div class="check-cart">
+            <label>Số lượng</label>
+            <input type="text" id="quantity"><br>
+            <label>Đơn giá</label>
+            <input type="text" id="price"><br>
+            <label>Thành tiền</label>
+            <input type="text" id="total-price"><br>
+            <button onclick="checkTotal()">Tính tiền</button>
+        </div>
+        <script>
+            function checkTotal(){                
+                var checkQuantity = document.getElementById("quantity").value;
+                quantity= Number(checkQuantity);
+                var checkPrice = document.getElementById("price").value;
+                price= Number(checkPrice);
+                totalPrice = quantity*price
+                document.getElementById("total-price").value = totalPrice;
+            }            
+        </script>
+        <h1>Bài 13</h1>
+        <h3 id="show-time">
+            <span id="hour">0</span>:
+            <span id="minus">0</span>:
+            <span id="second">0</span>:
+            <span id="minisecond">0</span>
+        </h3>
+        <button onclick="startOClock()">Start</button>
+        <button onclick="stopOClock()">Stop</button>        
+        <button onclick="resetOClock()">Reset</button>
+        <script>           
+            updateTime()
+            var startTime = 0; 
+            var minisecond,secondBefore, second, minusBefore, minus,hour;                
+            function updateTime() {
+                startTime ++;                
+                minisecond = startTime % 100;
+                secondBefore = Math.floor(startTime /100 );
+                second = secondBefore % 60;
+                minusBefore = Math.floor(second/60);
+                minus = minusBefore % 60;
+                hour = Math.floor(minus/60);                
+                document.getElementById("minisecond").innerHTML = minisecond;
+                document.getElementById("second").innerHTML = second;
+                document.getElementById("minus").innerHTML = minus;
+                document.getElementById("hour").innerHTML = hour;
+            }
+            console.log(startTime)
+            let startOClock = () => {
+                loop = setInterval(updateTime, 10)
+            }
+            let stopOClock = () => {
+                clearInterval(loop);
+            }
+            function resetOClock() {
+                minisecond = 0;
+                second = 0;
+                minus = 0
+                hour = 0;
+                document.getElementById("minisecond").innerHTML = "0";
+                document.getElementById("second").innerHTML = "0";
+                document.getElementById("minus").innerHTML = "0";
+                document.getElementById("hour").innerHTML = "0";
+            }
+            window.onload = () => {
+                minisecond = 0;
+                second = 0;
+                minus = 0
+                hour = 0;
+                document.getElementById("minisecond").innerHTML = "0";
+                document.getElementById("second").innerHTML = "0";
+                document.getElementById("minus").innerHTML = "0";
+                document.getElementById("hour").innerHTML = "0";
+            }
+        </script>
+        <h1>Bài 14(đang làm dở)</h1>
+        <div id="creatSlider">
+            <div class="imageSlider"><img src="./slider_1_image.png"/></div>
+            <div class="imageSlider"><img src="./slider_2_image.png"/></div>
+            <div class="imageSlider"><img src="./slider_3_image.png"/></div>
+        </div>
+        <script>
+
+        </script>
+        <h1>Bài 18(đang làm dở)</h1>
+        <canvas id="treasure" width="500" height="500" style="border: 1px solid black;">
+       
+        </canvas>
+        <p>
+            Những bài toán cần giải quyết<br>
+            - Chọn tọa độ khi click chuột ( done) >> làm sao check đc tọa độ này trùng vs ô nào trong canvas<br>
+            - chỉ đc chọn 1 lần o, lần sau là x và ngược lại<br>
+            - Những ô đã đc chọn sẽ k đc gán giá trị khác<br>
+            - điều kiện win : 5 cái 1 hàng ngang, dọc, chéo<br>
+        </p>
+        <script>
+            var map = [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0]
+            ]
+            document.addEventListener('click', printMousePos, true);
+            function printMousePos(e){
+                cursorX = Math.floor(e.pageX/25);
+                cursorY= Math.floor(e.pageY/25);
+                console.log("Tọa độ:",cursorX,cursorY  );      
+            }
+            let keyDown = (event) => {
+                console.log(event);
+                
+                // đang kẹt
+            }
+            var xImg = new Image; 
+            xImg.src = "./icon-facebook.png"; 
+            var oImg = new Image; 
+            oImg.src = "./icon-youtube.png"; 
+
+            window.onload = () => {
+                var c = document.getElementById("treasure")
+                var ctx = c.getContext("2d")
+                setInterval(() => {
+                    ctx.fillStyle = "#ffffff"; 
+                    ctx.fillRect(0, 0, 500, 500);          
+                    for (let i = 0; i < map.length; i++) {
+                        for (let j = 0; j < map[i].length; j++) {
+                            if (map[i][j] == 1) {
+                                ctx.drawImage(oImg, j * 25, i * 25, 25, 25); 
+                            }
+                            if (map[i][j] == -1) {
+                                ctx.drawImage(xImg, j *25, i * 25, 25, 25);
+                            }
+                        }
+                    }
+                }, 1);
+            }
+        </script>
+    </body>
+</html>
